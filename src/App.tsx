@@ -1,10 +1,14 @@
 import React from 'react';
+import AdminStoreProvider from './context/theme/theme.context';
+import Sample from './components/sample/sample.component';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <AdminStoreProvider>
+    <div>
+      <Sample />
     </div>
+    </AdminStoreProvider>
   );
 }
 
