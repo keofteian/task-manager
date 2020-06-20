@@ -1,14 +1,12 @@
-import React from 'react';
-import AdminStoreProvider from './context/theme/theme.context';
+import React, { useState } from 'react';
+import ThemeStoreProvider from './context/theme/theme.context';
 import Sample from './components/sample/sample.component';
 
 function App() {
   return (
-    <AdminStoreProvider>
-    <div>
+    <ThemeStoreProvider>
       <Sample />
-    </div>
-    </AdminStoreProvider>
+    </ThemeStoreProvider>
   );
 }
 

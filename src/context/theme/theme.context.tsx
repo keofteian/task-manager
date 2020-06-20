@@ -1,20 +1,27 @@
-import React, { Dispatch, useReducer } from "react";
-import { initialState, IState, reducer } from "./theme.reducer";
-import { Actions } from './theme.actions';
+import React, { ReactNode, FC, createContext, useState } from "react";
 
-interface IContextProps {
-  state: IState;
-  dispatch: Dispatch<Actions>;
+interface IContext {
+  theme: { get: string; set: any }
 }
 
-export const ThemeStore = React.createContext({} as IContextProps);
+interface Props {
+  children: ReactNode;
+}
 
-const ThemeStoreProvider = (props: any) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-    const value = { state, dispatch };
+export const ThemeContext = createContext({} as IContext);
+
+const ThemeStoreProvider: FC<Props> = ({ children }) => {
+
+    const [ theme, setTheme ] = useState<string>('light');
+
+    const store = {
+      theme: { get: theme, set: setTheme }
+    }
 
     return (
-        <ThemeStore.Provider value={value}>{props.children}</ThemeStore.Provider>
+        <ThemeContext.Provider value={store}>
+          {children}
+        </ThemeContext.Provider>
     );
 }
 
