@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../../context/theme/theme.context";
+import { Context } from "../../context/context";
 
 const Sample = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(Context);
   const { get, set } = theme;
 
   const toggleTheme = () => {
@@ -14,7 +14,7 @@ const Sample = () => {
     <>
       <h3>Theme: {get}</h3>
       <button onClick={() => set(toggleTheme)}>
-          {get ? 'Light' : 'Dark'}
+          {get === 'dark' ? 'Light' : 'Dark'}
       </button>
     </>
   );

@@ -1,23 +1,14 @@
-import React, { ReactNode, FC, useState } from "react";
-import { ThemeContext } from './theme/theme.context';
+import { createContext, Dispatch, SetStateAction } from "react";
 
-interface Props {
-  children: ReactNode;
+interface ITasks {
+  id: number;
+  title: string;
+  status: string;
 }
 
-const Store: FC<Props> = ({ children }) => {
-
-    const [ theme, setTheme ] = useState<string>('light');
-
-    const store = {
-      theme: { get: theme, set: setTheme }
-    }
-
-    return (
-        <ThemeContext.Provider value={store}>
-          {children}
-        </ThemeContext.Provider>
-    );
+interface IContext {
+  theme: { get: string; set: Dispatch<SetStateAction<string>> };
+  tasks: { get: Array<ITasks>; set: Dispatch<SetStateAction<Array<ITasks>>> };
 }
 
-export default Store;
+export const Context = createContext({} as IContext);
