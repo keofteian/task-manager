@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import ThemeStoreProvider from './context/theme/theme.context';
+import React, { useContext } from 'react';
+import Store from './context/context';
 import Sample from './components/sample/sample.component';
 
 function App() {
   return (
-    <ThemeStoreProvider>
+    <Store>
       <Sample />
-    </ThemeStoreProvider>
+    </Store>
   );
 }
 
