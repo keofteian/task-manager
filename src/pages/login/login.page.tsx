@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from './login.styles';
 import { loginApi } from '../../api/auth/login.api';
 
 const LoginPage = () => {
@@ -11,9 +12,9 @@ const LoginPage = () => {
     return (
         <>
             <h3>Login</h3>
-            <button onClick={() => loginHandler()}>
+            <Button onClick={() => loginHandler()}>
                 Login
-            </button>
+            </Button>
         </>
     );
 };
