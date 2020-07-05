@@ -4,6 +4,9 @@
   - React Task Manager app
 
 #### :heavy_check_mark: Technologies used:
-  - React Hooks
-  - Context Api
-  - Typescript
+  - Front-end:
+    - React Hooks
+    - Context Api
+    - Typescript
+  - Back-end:
+    - express jsonwebtoken node
